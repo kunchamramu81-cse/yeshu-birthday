@@ -5,7 +5,7 @@ import ParticleField from '../ui/ParticleField';
 import { meta } from '../../data/story';
 
 // Use Srijan night photo as the cinematic cover — most visually striking
-const COVER_SRC = '/yeshu-birthday/photos/ch14/photo_03.jpg';
+const COVER_SRC = '/photos/ch14/photo_03.jpg';
 
 export default function HeroSection() {
   const ref = useRef(null);

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { openingNarration, meta } from '../../data/story';
 import { fadeUp, staggerContainerSlow } from '../../utils/animations';
 
-const PROFILE_SRC = '/yeshu-birthday/photos/ch01/photo_01.jpg';
+const PROFILE_SRC = '/photos/ch01/photo_01.jpg';
 
 export default function NarrationSection() {
   return (

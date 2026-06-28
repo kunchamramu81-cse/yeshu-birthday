@@ -38,8 +38,8 @@ In `NarrationSection.jsx`, find the profile div and replace with:
 In `src/data/story.js`, for each chapter, populate the `photos` array:
 ```js
 photos: [
-  { src: '/yeshu-birthday/photos/ch1-01.jpg', alt: 'Campus tour', caption: 'Our first day' },
-  { src: '/yeshu-birthday/photos/ch1-02.jpg', alt: 'Yellow dress moment' },
+  { src: '/photos/ch1-01.jpg', alt: 'Campus tour', caption: 'Our first day' },
+  { src: '/photos/ch1-02.jpg', alt: 'Yellow dress moment' },
 ]
 ```
 
