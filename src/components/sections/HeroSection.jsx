@@ -1,8 +1,10 @@
+import Aurora from "../ui/Aurora";
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Play } from 'lucide-react';
 import ParticleField from '../ui/ParticleField';
 import { meta } from '../../data/story';
+import useMouseParallax from "../../hooks/useMouseParallax";
 
 // Use Srijan night photo as the cinematic cover — most visually striking
 const COVER_SRC = '/photos/ch14/photo_03.jpg';
@@ -13,6 +15,7 @@ export default function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const { x, y: mouseY } = useMouseParallax(18);
 
   const scrollDown = () => {
     document.getElementById('narration')?.scrollIntoView({ behavior: 'smooth' });
@@ -25,7 +28,14 @@ export default function HeroSection() {
       className="relative w-full h-screen min-h-[600px] overflow-hidden flex items-center justify-center"
     >
       {/* Parallax cover image */}
-      <motion.div style={{ y, scale }} className="absolute inset-0 will-change-transform">
+      <motion.div
+    style={{
+        y,
+        scale,
+        x,
+        rotateY: x / 12,
+        rotateX: -mouseY / 12
+    }} className="absolute inset-0 will-change-transform">
         <img
           src={COVER_SRC}
           alt="Cover"
@@ -41,7 +51,7 @@ export default function HeroSection() {
           style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%)' }}
         />
       </motion.div>
-
+      <Aurora />
       {/* Particles */}
       <div className="absolute inset-0 z-10">
         <ParticleField count={45} />
